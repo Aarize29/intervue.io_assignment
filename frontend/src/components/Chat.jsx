@@ -31,7 +31,7 @@ const Chat = ({ user }) => {
     <div>
       <button
         onClick={toggleChat}
-        className="fixed bottom-4 right-4  rounded-lg bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition duration-300 ease-in-out focus:outline-none z-50"
+        className="fixed bottom-4 right-4  rounded-lg bg-green-500 hover:bg-green-600 text-white p-6 rounded-full shadow-lg transition duration-300 ease-in-out focus:outline-none z-50"
       >
         {isOpen ? "Close Chat" : "Open Chat"}
       </button>
@@ -40,7 +40,7 @@ const Chat = ({ user }) => {
           <div className="bg-white text-black rounded-lg shadow-lg w-full max-w-md mx-4">
             <div className="p-4 border-b border-gray-300 flex justify-between items-center">
               <h2 className="text-lg font-bold">Chat</h2>
-              <button onClick={toggleChat} className="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out">
+              <button onClick={toggleChat} className="text-gray-600 text-xl hover:text-gray-800 transition duration-300 ease-in-out">
                 &times;
               </button>
             </div>

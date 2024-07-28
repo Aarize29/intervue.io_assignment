@@ -9,7 +9,7 @@ const PollHistory = ({ pollHistory }) => {
           <p>No past polls available.</p>
         ) : (
           pollHistory.map((poll, index) => (
-            <div key={index} className="border p-4 rounded-lg shadow-md">
+            <div key={index} className="border p-6 rounded-lg shadow-md">
               <h3 className="text-lg font-bold mb-2">Poll {index + 1}</h3>
               <ul>
                 {Object.keys(poll).map((option, idx) => (

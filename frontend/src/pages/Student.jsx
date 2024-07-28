@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
-import PollResults from "../../components/PollResults ";
-import Chat from "../../components/Chat";
+import PollResults from "../components/PollResults ";
+import Chat from "../components/Chat";
 
 const socket = io("http://localhost:4000");
 
@@ -171,8 +171,8 @@ const Student = () => {
               </div>
             )}
           </div>
-          <Chat user={storedName || "Student"} />
         </div>
+          <Chat user={storedName || "Student"} />
       </div>
     );
   };

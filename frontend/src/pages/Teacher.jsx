@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
-import QuestionForm from "../../components/QuestionForm ";
-import PollResults from "../../components/PollResults ";
-import Chat from "../../components/Chat";
-import PollHistory from "../../components/PollHistory";
+import QuestionForm from "../components/QuestionForm ";
+import PollResults from "../components/PollResults ";
+import Chat from "../components/Chat";
+import PollHistory from "../components/PollHistory";
 
 const socket = io("http://localhost:4000");
 
 const Teacher = () => {
   const [students, setStudents] = useState([]);
   const [pollResults, setPollResults] = useState({});
-  const [pollHistory, setPollHistory] = useState([]);  // State to store poll history
-  const [activeTab, setActiveTab] = useState("ask");  // State to manage the active tab
+  const [pollHistory, setPollHistory] = useState([]);  
+  const [activeTab, setActiveTab] = useState("ask");  
 
   useEffect(() => {
     socket.on("pollResults", (results) => {
       setPollResults(results);
-      setPollHistory((prevHistory) => [...prevHistory, results]);  // Add new poll results to history
+      setPollHistory((prevHistory) => [...prevHistory, results]);  
     });
 
     socket.on("students", (studentsList) => {
-      setStudents([...new Set(studentsList)]);  // Remove duplicates
+      setStudents([...new Set(studentsList)]);  
     });
 
     return () => {
@@ -54,7 +54,7 @@ const Teacher = () => {
       </nav>
       <div className="flex-grow flex items-center justify-center p-6">
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
-          <Chat user="Teacher" />
+          
           {activeTab === "ask" ? (
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold mb-4">Ask a Question</h2>
@@ -81,10 +81,11 @@ const Teacher = () => {
               </div>
             </div>
           ) : (
-            <PollHistory pollHistory={pollHistory} />  // Render PollHistory component if history tab is active
+            <PollHistory pollHistory={pollHistory} /> 
           )}
         </div>
       </div>
+      <Chat user="Teacher" />
     </div>
   );
 };
