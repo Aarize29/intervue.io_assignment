@@ -60,5 +60,4 @@ This project is a real-time classroom polling application that allows teachers t
 ### Deployed website
   - https://intervue-io-assignment.vercel.app/
 
-### Assignment link:
-- https://drive.google.com/file/d/15dPzzdBs9q7Lgbb2jGHMqgTULxL1tePl/view?usp=sharing
+
