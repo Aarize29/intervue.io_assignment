@@ -52,6 +52,10 @@ io.on('connection', (socket) => {
     }
   });
 
+  socket.on('chatMessage', (msg) => {
+    io.emit('chatMessage', msg);
+  });
+
   socket.on('disconnect', () => {
     console.log('Client disconnected');
     students = students.filter(s => s.id !== socket.id);
