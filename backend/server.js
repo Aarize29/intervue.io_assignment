@@ -18,14 +18,17 @@ let currentQuestion = null;
 let pollResults = {};
 let correctAnswer = '';
 
+//establishing web socket connection 
 io.on('connection', (socket) => {
   console.log('New client connected');
 
+  //student login  
   socket.on('setName', (name) => {
     students.push({ id: socket.id, name });
     io.emit('students', students.map(student => student.name));
   });
 
+  //function triggers when teacher submit the question
   socket.on('submitQuestion', (questionData) => {
     currentQuestion = questionData;
     correctAnswer = questionData.correctOption;
@@ -36,12 +39,16 @@ io.on('connection', (socket) => {
     io.emit('question', questionData);
   });
 
+  //function triggers when student submit there answer
   socket.on('submitAnswer', (answer) => {
     if (pollResults.hasOwnProperty(answer)) {
       pollResults[answer]++;
     }
     io.emit('pollResults', pollResults);
   });
+
+
+  //function to remove student
 
   socket.on('kickStudent', (studentName) => {
     const student = students.find(s => s.name === studentName);
@@ -52,6 +59,8 @@ io.on('connection', (socket) => {
     }
   });
 
+  // chat functionality 
+  
   socket.on('chatMessage', (msg) => {
     io.emit('chatMessage', msg);
   });

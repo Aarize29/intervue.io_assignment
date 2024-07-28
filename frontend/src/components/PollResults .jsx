@@ -1,3 +1,6 @@
+/*
+summary:-  live polling will get trigger when the user submits the answer 
+*/
 import React from "react";
 
 const PollResults = ({ pollResults }) => {

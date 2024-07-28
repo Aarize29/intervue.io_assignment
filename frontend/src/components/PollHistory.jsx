@@ -1,3 +1,6 @@
+/*
+ summary : teacher can see the previous polling history
+*/
 import React from "react";
 
 const PollHistory = ({ pollHistory }) => {

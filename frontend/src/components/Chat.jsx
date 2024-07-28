@@ -1,7 +1,12 @@
+/* 
+summary : - takes current user chat and trigger chat functionality in the backend and renders all the  chat messages
+ */
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:4000");
+const socket = io("https://intervue-io-assignment.onrender.com");  //Prod
+// const socket = io("http://localhost:400");  //Dev 
+
 
 const Chat = ({ user }) => {
   const [message, setMessage] = useState("");

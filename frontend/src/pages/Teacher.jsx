@@ -1,3 +1,6 @@
+/* 
+summary :- Teacher can ask question , kick the student out and can see polling history
+ */
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 import QuestionForm from "../components/QuestionForm ";
@@ -5,7 +8,8 @@ import PollResults from "../components/PollResults ";
 import Chat from "../components/Chat";
 import PollHistory from "../components/PollHistory";
 
-const socket = io("http://localhost:4000");
+const socket = io("https://intervue-io-assignment.onrender.com");  //Prod
+// const socket = io("http://localhost:400");  //Dev 
 
 const Teacher = () => {
   const [students, setStudents] = useState([]);
@@ -73,7 +77,7 @@ const Teacher = () => {
                         onClick={() => handleKickStudent(student)}
                         className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded transition duration-300"
                       >
-                        Kick
+                        Remove
                       </button>
                     </li>
                   ))}

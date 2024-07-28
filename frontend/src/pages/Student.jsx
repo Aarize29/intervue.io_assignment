@@ -1,9 +1,14 @@
+/*
+summary:- Students gets a chance to choose the answer, after submiting the answer they can see the correct answer and also can see live polling 
+*/
 import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 import PollResults from "../components/PollResults ";
 import Chat from "../components/Chat";
 
-const socket = io("http://localhost:4000");
+const socket = io("https://intervue-io-assignment.onrender.com");  //Prod
+// const socket = io("http://localhost:400");  //Dev 
+
 
 const Student = () => {
     const [name, setName] = useState("");

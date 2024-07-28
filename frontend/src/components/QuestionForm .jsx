@@ -1,7 +1,12 @@
+/*
+  Summary:- Added feature of adding dynamic number of options to a question , and a button which sends question to the students
+*/
 import React, { useState } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:4000");
+const socket = io("https://intervue-io-assignment.onrender.com");  //Prod
+// const socket = io("http://localhost:400");  //Dev 
+
 
 const QuestionForm = () => {
   const [question, setQuestion] = useState("");
